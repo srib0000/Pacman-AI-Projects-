@@ -21,4 +21,5 @@ learningRate: "0.1"
 numExperiences: "3000"
 valueIterations: "100"
 iterations: "10000"
+extractor: "CoordinateExtractor"
 

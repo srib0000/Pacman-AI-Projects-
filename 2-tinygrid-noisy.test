@@ -1,4 +1,4 @@
-class: "ValueIterationTest"
+class: "ApproximateQLearningTest"
 
 # GridWorld specification
 #    _ is empty space
