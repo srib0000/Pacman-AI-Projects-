@@ -137,7 +137,8 @@ class NumberPassedQuestion(Question):
     """Grade is the number of test cases passed."""
 
     def execute(self, grades):
-        grades.addPoints([f(grades) for _, f in self.testCases].count(True))
+        percent = [f(grades) for _, f in self.testCases].count(True) / len(self.testCases)
+        grades.addPoints(percent * self.maxPoints)
 
 
 # Template modeling a generic test case

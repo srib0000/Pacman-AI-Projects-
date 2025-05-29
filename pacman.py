@@ -562,7 +562,7 @@ def readCommand(argv):
 
     # Fix the random seed
     if options.fixRandomSeed:
-        random.seed('cs4013/5013')
+        random.seed('AI')
 
     # Choose a layout
     args['layout'] = layout.getLayout(options.layout)
