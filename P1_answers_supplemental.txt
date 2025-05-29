@@ -1,0 +1,108 @@
+QUESTION 1.1
+
+In the depthFirstSearch function, a stack is used to implement the depth-first search (DFS) algorithm. The stack follows the Last In First Out (LIFO) principle, which is essential for DFS.
+DFS explores as far as possible along each branch before backtracking. The stack naturally supports this backtracking mechanism. When a dead end is reached, the algorithm can easily backtrack to the most recent decision point by popping the stack.DFS typically uses less memory compared to breadth-first search (BFS) since it only needs to store the path from the start node to the current node. The stack efficiently manages this path information.The stack is a simple and intuitive data structure that aligns well with the recursive nature of DFS. It allows for a clean and concise implementation of the algorithm.
+
+QUESTION 1.2
+
+The exploration order aligns with expectations, considering the cost of expansion is 130 and the number of expanded nodes is 146, as compared to the provided hint options. Additionally, it's noteworthy that, apart from the nodes along the path, no other squares are being traversed or visited en route to the goal.
+
+
+QUESTION 2.1
+
+Breadth-First Search (BFS) employs a queue data structure for its exploration strategy. The queue facilitates the First-In-First-Out (FIFO) principle, ensuring that nodes are processed in the order they are discovered. This aligns seamlessly with BFS's level-order exploration approach, where all nodes at the current level are explored before moving on to the next level. The simplicity of enqueueing newly discovered nodes and dequeueing nodes to be explored contributes to the straightforward implementation of BFS.
+
+QUESTION 3.1
+
+In the Uniform Cost Search (UCS) algorithm, the cost function is implicitly defined by the cumulative cost of actions taken to reach a specific state. The getCostOfActions method in the `SearchProblem` class calculates the total cost of a sequence of actions, with the actual cost of each action being provided when generating the sequence. The cost of actions is accumulated and used by UCS to prioritize paths with lower cumulative costs. While the specific weights or factors for each action are not explicitly defined in the code, the algorithm relies on the stepCost values returned by the getSuccessors method of the SearchProblem class. These step costs represent the cost of individual actions, and UCS inherently prioritizes paths with lower total costs for optimal traversal of the search space. If different weights need to be assigned to actions, modifications to the getSuccessors method or the cost calculation logic would be necessary.
+
+
+QUESTION 4.1
+
+In the search algorithms like A* search, heuristics play a crucial role in estimating the cost from the current state to the goal state. The nullHeuristic employed in the code is a basic heuristic that consistently returns a value of 0, providing no informative guidance to the search algorithm. Consequently, the use of `nullHeuristic` reduces the search to a uniform cost search, where only the actual cost of actions influences the exploration. This simple heuristic does not guarantee an optimal solution as it lacks the capacity to guide the algorithm toward more promising paths or states. In contrast, the Manhattan distance heuristic calculates the Manhattan distance between the current state and the goal state, offering a more informed estimate of the remaining cost. This heuristic is admissible, ensuring it never overestimates the true cost to reach the goal and consequently guaranteeing that A* search utilizing the Manhattan distance heuristic will find the optimal solution. The Manhattan distance heuristic's superiority lies in its ability to guide the search algorithm efficiently towards optimal solutions by considering spatial relationships between states.
+
+QUESTION 4.2
+
+In the openMaze, the behavior of various search strategies can be anticipated based on their characteristics. Depth-First Search (DFS) is likely to explore deeply along a single path, potentially missing the optimal solution. Breadth-First Search (BFS) systematically explores all paths at the current depth level, ensuring it finds the shortest path. Uniform Cost Search (UCS) considers the cost of paths, prioritizing lower-cost options, and is expected to yield the optimal solution in terms of cost. A* Search, if using the Manhattan distance heuristic, combines cost and heuristic estimates, offering an efficient and optimal solution.
+
+QUESTION 5.1
+
+The state representations in the problem are:
+
+FoodSearchProblem:
+State: Tuple ((x, y), foodGrid) representing Pacman's position and remaining food.
+
+CornersProblem:
+State: Tuple ((x, y), (c1, c2, c3, c4)) representing Pacman's position and visited corners.
+
+PositionSearchProblem:
+State: Tuple `(x, y)` representing Pacman's current position.
+
+ClosestDotSearchAgent:
+State: Tuple `(x, y)` representing Pacman's current position.
+
+AnyFoodSearchProblem:
+State: Tuple `(x, y)` representing Pacman's current position.
+
+QUESTION 6.1
+
+The heuristic used for the CornersProblem is the cornersHeuristic. This heuristic calculates the Manhattan distance from the current position to the farthest unvisited corner.
+ 
+Potential Strong Points:
+
+Admissibility: The heuristic is admissible because it always underestimates the actual cost to reach the goal. This is ensured by taking the maximum Manhattan distance to any unvisited corner, which guarantees that the heuristic value is less than or equal to the true cost.
+
+Efficiency: The heuristic is relatively efficient to compute since it only involves calculating distances to unvisited corners and selecting the maximum.
+
+Completeness: The heuristic considers all unvisited corners, ensuring that the search algorithm explores paths that lead to the goal state where all corners are visited.
+
+Potential Weak Points:
+
+Lack of Consideration for Other Corners: The heuristic only focuses on the farthest unvisited corner. In some situations, this may not capture the overall structure of the maze, potentially leading to suboptimal paths.
+
+Disregard for Wall Obstacles: The heuristic does not consider the presence of walls, which might lead to suboptimal paths if there are significant obstacles between the current position and the farthest unvisited corner.
+
+Consistency:
+The cornersHeuristic is not guaranteed to be consistent. For a heuristic to be consistent, it should satisfy the triangle inequality. In this case, the heuristic involves taking the maximum distance to any unvisited corner, and the triangle inequality may not hold in all situations. Therefore, the heuristic may not be consistent in general.
+
+
+QUESTION 7.1
+
+The heuristic used for the FoodSearchProblem is the foodHeuristic. This heuristic calculates the maximum maze distance from the current Pacman position to any remaining food on the game board.
+
+Potential Strong Points:
+
+Admissibility: The heuristic is admissible as it never overestimates the cost to reach the goal. This is because it computes the maximum maze distance, which is a lower bound on the actual cost.
+Efficiency: The heuristic efficiently captures the distance to the farthest remaining food, providing a reasonable estimate of the remaining effort required to collect all food.
+
+Potential Weak Points:
+
+Overestimation: While the heuristic is admissible, it may overestimate the actual cost significantly in some cases. This is particularly true if there are obstacles or blocked paths that force Pacman to take a longer route to reach the farthest food.
+Ignorance of Layout: The heuristic does not consider the layout of obstacles or the distribution of food, potentially leading to suboptimal estimates in complex maze configurations.
+
+Consistency:
+The heuristic is consistent because it satisfies the triangle inequality. In other words, the estimated cost from the current state to a successor state, plus the estimated cost from that successor state to the goal, is always greater than or equal to the estimated cost directly from the current state to the goal. The heuristic uses maze distances, which inherently satisfy the triangle inequality.
+
+
+QUESTION 8.1
+
+The findPathToClosestDot function aims to return a path to the closest dot (food) on the Pacman game board. It uses breadth-first search (BFS) to explore the state space and find the shortest path to any remaining food.
+
+Breadth-First Search: The function then applies breadth-first search (search.bfs(problem)) to find the shortest path to the closest remaining food. The result is a list of actions representing the sequence of moves required to reach the goal.
+
+Start Position and Game State Retrieval: The function starts by retrieving the Pacman's starting position, the layout of remaining food, and the maze walls from the given gameState.
+
+Problem Initialization: It initializes a search problem (AnyFoodSearchProblem) using the game state, considering any remaining food as the goal. This problem inherits from PositionSearchProblem and represents the state space as (x, y) positions. Finally, the function returns the computed path to the closest dot.
+
+Potential Strong Points:
+
+Completeness: Breadth-first search is a complete algorithm, ensuring that it finds a solution if one exists.
+Optimality: BFS guarantees an optimal solution, finding the shortest path to the closest dot.
+Simplicity: The solution is straightforward and easy to understand, leveraging the simplicity of BFS.
+
+Potential Weak Points:
+
+Computational Cost: BFS explores all nodes at a given depth level before moving on to the next level. In larger or more complex game states, this can result in high computational costs.
+Memory Usage: BFS stores all visited states in memory, potentially leading to high memory usage for large search spaces.
+Lack of Consideration for Obstacles: BFS does not consider the layout of obstacles or the existence of walls, potentially leading to suboptimal paths in maze-like configurations.
+

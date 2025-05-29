@@ -1,0 +1,68 @@
+Names: Nikhil Sai Kondapaneni (113571691)
+       Sasank Sribhashyam (113644157)
+
+
+[1.1] The original ReflexAgent in multiAgents.py assesses Pacman's actions based on its position, remaining food, and ghost locations.
+It calculates distances to food and scared ghosts, combining these with the game score for a final action score.
+The improved version employs a more sophisticated evaluation method. Distances to vital elements are considered inversely, prioritizing closer food.
+A weighted sum of factors allows assigning different importance levels, like prioritizing proximity to food over avoiding ghosts.
+These enhancements aim to make the agent smarter, strategically favoring actions that approach food while considering ghosts.
+The effectiveness is gauged through varied scenarios, with room for adjustments to enhance performance.
+The goal is to refine decision-making, ensuring longer survival and higher point accumulation in the game.
+If your agent frequently dies when there are two ghosts, it suggests that the current evaluation function may need improvement.
+The agent's survival depends on its decision-making,-
+so tweaking the evaluation function to better handle situations with multiple ghosts could help enhance its performance and increase its chances of staying alive in the game.
+
+[1.2] The value function is used to assess the desirability of different game states for the agent.
+It considers factors like Pacman's position, remaining food, and the locations of ghosts.
+The estimation of this value function makes sense because it captures the key elements influencing the agent's decisions.
+For example, it considers the reciprocal of distances to important objects like food, indicating that closer food is more valuable.
+Additionally, a weighted sum combines various factors, allowing flexibility in assigning importance to each.
+This approach enables the agent to make strategic decisions, balancing the need for food with the risk of encountering ghosts.
+The value function's effectiveness can be observed through gameplay outcomes, and adjustments can be made to enhance the agent's decision-making in different scenarios.
+The goal is to create a value function that guides the agent to make optimal choices, leading to improved performance and better chances of survival in the game.
+
+[2.1]
+In the minimax algorithm, Pacman thinks ahead by exploring different moves in a game tree.
+It takes turns with ghosts, trying to maximize its score while minimizing the opponents.
+Pacman predicts the outcomes of its moves and the opponents' moves, alternating between choosing the best option and assuming the opponents make the worst choices.
+This process continues until a certain depth or the end of the game, and Pacman selects the move that leads to the best overall outcome.
+The algorithm helps Pacman make strategic decisions by considering various possibilities and opponent strategies.
+
+[3.1]
+The AlphaBetaAgent minimax values are expected to be identical to the MinimaxAgent minimax values because both agents follow the same underlying minimax algorithm for decision-making.
+The key difference lies in how the alpha-beta pruning optimizes the search process by pruning branches that cannot affect the final decision.
+Although the actions selected might vary due to different tie-breaking behavior, the final minimax values should remain the same.
+Alpha-beta pruning ensures a more efficient search by avoiding the exploration of redundant subtrees, resulting in faster computation without compromising the correctness of the minimax algorithm.
+Therefore, the values calculated by both agents, with and without alpha-beta pruning, should be equivalent.
+
+[3.2]
+In breaking ties during the alpha-beta pruning process, my strategy involves selecting the first encountered action among those with equal values.
+The tie-breaking strategy is implemented to ensure consistency in the decision-making process and to maintain fairness in selecting actions when multiple actions lead to the same minimax value.
+By consistently choosing the first action among ties, the agent's behavior becomes more predictable, and the results remain reproducible across different runs.
+This tie-breaking approach simplifies the decision-making process and aligns with the principle of maintaining consistency in the absence of distinct differences in the minimax values.
+
+[4.1]
+The Expectimax algorithm is like a strategic decision-maker for Pacman.
+It considers the fact that ghosts can make unpredictable moves and, instead of always playing it safe, it calculates the average value of possible actions.
+This allows Pacman to take some risks in uncertain situations.
+
+In the 'trappedClassic' scenario, AlphaBetaAgent is a careful player that avoids risks, assuming ghosts always make optimal moves.
+Consequently, it might lose if it plays too safe in situations where getting trapped is possible.
+On the other hand, ExpectimaxAgent is more adventurous, taking into account the randomness in ghost behavior.
+In scenarios where Pacman can grab more food before potentially getting trapped,
+ExpectimaxAgent is willing to take risks, leading to different outcomes compared to the cautious AlphaBetaAgent.
+
+[5.1]
+
+The new evaluation function, betterEvaluationFunction, enhances Pacman's decision-making by considering various aspects of the game state.
+It evaluates the minimum distance to the nearest food pellet, the remaining number of food pellets, and the proximity to capsules.
+Additionally, it factors in the distances to both scared and non-scared ghosts, adjusting penalties based on the level of threat.
+The remaining scared time for ghosts is also taken into account.
+Lastly, the function considers the current game score.
+
+Compared to the previous evaluation function, the new one is more comprehensive and strategic.
+It considers a wider range of game elements, such as remaining food and capsules,
+and adjusts Pacman's behavior based on the threat levels of nearby ghosts.
+This nuanced approach aims to create a Pacman agent that not only maximizes its score but also strategically navigates the game environment,
+leading to improved overall performance and success in completing levels.
