@@ -1,5 +1,5 @@
 class: "GraphGameTreeTest"
-alg: "AlphaBetaAgent"
+alg: "ExpectimaxAgent"
 depth: "2"
 
 diagram: """
