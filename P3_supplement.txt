@@ -1,0 +1,38 @@
+
+######################
+# Supplemental Questions #
+######################
+
+
+Answer the supplemental questions here! Make sure you follow the format if it is asked
+
+Q1#######################
+
+QS1.1: The function computeActionFromValues(state) helps decide the best action to take in a game or problem situation. First, it checks if the game has ended (if it has, then there's no action to take). Then, it starts with no best action and a value set very low. It looks at all the different things you can do in the game from where you are. For each option, it calculates how good that option seems based on what it knows. If it finds an option that seems better than what it had before, it updates its idea of the best action. Finally, it tells you what action it thinks is the best one to take based on what it's learned so far. Essentially, it's like figuring out the smartest move to make at each step of the game.
+
+QS1.2: The function `computeQValueFromValues(state, action)` figures out how good it is to do a certain action from a certain situation in a game or problem. First, it starts by assuming the reward for doing that action is 0. Then, it looks at all the possible things that might happen if you take that action from where you are. For each possible outcome, it calculates how much reward you'll get right away. Then, it adds up all the possible future rewards you might get from those outcomes, considering how likely they are to happen. Finally, it tells you how good it thinks that action is based on all of this information. In simpler terms, it's like guessing how beneficial a move might be in the long run.
+
+Q3#######################
+
+QS3.1: In these different situations, we have specific goals for our agent to achieve in a game. For example, in one scenario, the goal might be to avoid dangerous areas while considering short-term gains, like getting rewards right away and being careful with risky moves. In another scenario, there might be random surprises, so the agent needs to think about both short-term gains and dealing with unexpected events. In another case, the main aim could be to reach the end of the game quickly, with less concern about risks along the way. Each scenario has its own strategies and priorities, like whether to focus more on immediate rewards or long-term benefits, and how much to explore the environment versus sticking to a known path.
+
+Q5#######################
+
+QS5.1: In Q-learning, an agent starts with no knowledge and learns by trial and error. It assigns values to actions in different situations, balancing between trying new actions and sticking with what works. After each action, it updates its guesses about action values based on what it expected versus what actually happened. PacmanQAgent is a specialized version for Pacman, while ApproximateQAgent groups similar situations and uses weights to approximate values, making it more efficient for larger games. Overall, these agents refine their strategies over time, learning to make better decisions based on their experiences.
+
+QS5.2 [optional]:
+
+Q6#######################
+
+QS6.1: While watching the agent play Pacman with different epsilon values, we're basically seeing how curious or cautious it is. If epsilon is low, the agent plays it safe, mostly picking actions it's already familiar with. This can make it miss out on finding better moves. On the other hand, if epsilon is high, the agent gets adventurous, trying out lots of new things, even if they might not always be the best choices. So, by watching the agent play with different epsilon values, we can see if it's being too careful or too bold, and whether it's finding the best ways to play Pacman.
+
+QS6.2 [optional]:
+
+
+Q7#######################
+
+QS7.1: To figure out if there's a good chance (more than 99%) of learning the best way to act after only 50 tries in Q-learning, we need to think about how fast Q-learning gets better. This depends on how much the agent explores (tries new things) versus exploits (sticks with what it knows works), plus how quickly it learns from its experiences. If the learning happens too slowly, it's hard to guarantee learning the best way within 50 tries. So, finding a perfect balance between trying new stuff and sticking with what works while learning quickly enough is tough. Because of this, we can't pin down a specific combination of exploration rate and learning speed that ensures learning the best way in just 50 tries. So, the answer is it's NOT POSSIBLE.
+
+
+
+

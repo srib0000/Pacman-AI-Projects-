@@ -1,0 +1,10 @@
+# P4_Supplement
+# Add your answer to  QS3.1 [optional] and QS7.1 [mandatory] using 
+
+QS3.1 [option]:
+
+When we perform an elimination operation on a factor, the unconditioned variables in the new factor are those from the original factor, except for the one we chose to eliminate. This variable is removed because we sum over all its possible values, which means it no longer directly affects the outcome. The conditioned variables don't change in the new factor. They are exactly the same as in the original factor because the elimination process only changes how we calculate probabilities, not the relationships that define which variables depend on others.
+
+QS7.1: 
+
+In Pacman we track ghosts using probabilities, the shading of squares shows how likely it is that a ghost is in a certain spot. Darker squares mean it's more likely a ghost is there because the evidence supports it. Lighter squares mean it's less likely, usually because the evidence suggests the ghost isn't there. This shading changes when we get new sensor data or as time goes by, showing us how our guesses about the ghost's location update based on new info or predicted movements. These visual changes help us understand how well our tracking methods are working.
